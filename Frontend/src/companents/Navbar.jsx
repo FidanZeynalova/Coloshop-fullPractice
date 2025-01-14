@@ -24,7 +24,7 @@ function Navbar() {
                             <FaBars />
                         </div>
                         <div className="basket" style={{ position: "relative", zIndex: "2" }}>
-                           <p> <NavLink to={"/basket"} style={{color:"black"}}><FaCartShopping /></NavLink> </p><span style={{ backgroundColor: "#ff4853", fontSize: "17px", position: 'absolute', padding: "3px 2px", borderRadius: "50%", bottom: "60%", left: "60%", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>{basket.length}</span>
+                           <p> <NavLink to={"/basket"} style={{color:"black"}}><FaCartShopping /></NavLink> </p><span style={{ backgroundColor: "#ff4853", color:"white",fontSize: "17px", position: 'absolute', padding: "3px 2px", borderRadius: "50%", bottom: "60%", left: "60%", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>{basket.length}</span>
                         </div>
 
                     </div>

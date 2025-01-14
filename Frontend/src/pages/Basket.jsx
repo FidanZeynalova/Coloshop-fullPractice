@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { NavLink } from 'react-router';
 import { BasketProducts } from '../context/BasketContext';
 import { useGetAllProductsQuery } from '../App/Slices/ColoshopSlices';
+import { Helmet } from 'react-helmet';
 
 function Basket() {
   let { basket, setBasket } = useContext(BasketProducts)
@@ -28,6 +29,12 @@ function Basket() {
     setBasket(filter)
   }
   return (
+   <>
+    <Helmet>
+    <link rel="icon" type="image/svg+xml" href="https://is.gd/Q7ckzI" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Basket Page</title>
+    </Helmet>
     <div className='Basket'>
       <div className="container">
         <h1>Basket Products</h1>
@@ -65,6 +72,7 @@ function Basket() {
         }
       </div>
     </div>
+   </>
   )
 }
 

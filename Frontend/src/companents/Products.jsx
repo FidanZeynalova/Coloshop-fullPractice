@@ -10,14 +10,6 @@ function Products() {
     let [deleteProduct] = useDeleteProductMutation()
     let { basket, setBasket } = useContext(BasketProducts)
     let [allData, setAllData] = useState([])
-    let navigate = useNavigate()
-
-    // Eger o idl-i data yoxdursa onda notpage atsin
-    //  useEffect(()=>{
-    //     if(!data){
-    //         navigate("*")
-    //             }
-    //  },[data])
 
 
     function handleDelete(id) {

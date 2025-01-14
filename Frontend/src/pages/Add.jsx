@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router';
 import { useGetAllProductsQuery, usePostProductMutation } from '../App/Slices/ColoshopSlices';
+import {Helmet} from "react-helmet";
 
 const validationSchema = Yup.object({
   image: Yup.string()
@@ -35,6 +36,12 @@ function Add() {
   });
 
   return (
+  <>
+  <Helmet>
+  <link rel="icon" type="image/svg+xml" href="https://is.gd/Z46fDL" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Page</title>
+  </Helmet>
     <div className='Add'>
       <div className="container">
         <h1>Add Product</h1>
@@ -82,6 +89,7 @@ function Add() {
         </form>
       </div>
     </div>
+  </>
   );
 }
 
