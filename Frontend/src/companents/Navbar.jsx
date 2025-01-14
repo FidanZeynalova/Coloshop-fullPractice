@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaBars, FaCartShopping } from "react-icons/fa6";
 import {NavLink} from "react-router"
+import { BasketProducts } from '../context/BasketContext';
 function Navbar() {
+    let {basket} = useContext(BasketProducts)
     return (
         <div className='Navbar'>
             <div className="container">
@@ -22,7 +24,7 @@ function Navbar() {
                             <FaBars />
                         </div>
                         <div className="basket" style={{ position: "relative", zIndex: "2" }}>
-                           <p> <NavLink to={"/basket"} style={{color:"black"}}><FaCartShopping /></NavLink> </p><span style={{ backgroundColor: "#ff4853", fontSize: "17px", position: 'absolute', padding: "3px 2px", borderRadius: "50%", bottom: "60%", left: "60%", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>0</span>
+                           <p> <NavLink to={"/basket"} style={{color:"black"}}><FaCartShopping /></NavLink> </p><span style={{ backgroundColor: "#ff4853", fontSize: "17px", position: 'absolute', padding: "3px 2px", borderRadius: "50%", bottom: "60%", left: "60%", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>{basket.length}</span>
                         </div>
 
                     </div>

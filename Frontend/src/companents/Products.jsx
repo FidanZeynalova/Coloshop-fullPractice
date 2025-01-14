@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaInfoCircle, FaShoppingCart } from "react-icons/fa";
 import { NavLink, useNavigate } from 'react-router';
 import { useDeleteProductMutation, useGetAllProductsQuery } from '../App/Slices/ColoshopSlices';
 import { MdDelete } from 'react-icons/md';
+import { BasketProducts } from '../context/BasketContext';
 
 function Products() {
     let { data, isLoading, refetch } = useGetAllProductsQuery()
     let [deleteProduct] = useDeleteProductMutation()
-    const navigate = useNavigate()
+    let { basket, setBasket } = useContext(BasketProducts)
 
 
     function handleDelete(id) {
         deleteProduct(id)
         refetch()
+    }
+    function handleBasket(item) {
+        let basketProduct = basket.find((product) => product._id == item._id)
+        if (basketProduct) {
+            basketProduct.count++
+            setBasket([...basket])
+        } else {
+            setBasket([...basket, { ...item, count: 1 }])
+        }
     }
 
 
@@ -52,7 +62,7 @@ function Products() {
                                         <div className="icon">
                                             <span><NavLink to={`/${item._id}`} style={{ color: "black" }}><FaInfoCircle /></NavLink> </span>
                                         </div>
-                                        <div className="icon" onClick={() => handleDelete(item)}>
+                                        <div className="icon" onClick={() => handleBasket(item)}>
                                             <FaShoppingCart />
                                         </div>
                                         <div className="icon" onClick={() => handleDelete(item._id)}>
