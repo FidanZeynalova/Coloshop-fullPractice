@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const ColoShopApi = createApi({
     reducerPath: 'coloshop',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http:localhost:3030/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/' }),
     endpoints: (builder) => ({
         getAllProducts: builder.query({
             query: () => `coloshop`
@@ -12,13 +12,14 @@ export const ColoShopApi = createApi({
         }),
         deleteProduct:builder.mutation({
             query:(id)=>({
-                URL:`coloshop/${id}`,
+                url:`coloshop/${id}`,
                 method:"DELETE"
             })
         }),
         postProduct:builder.mutation({
             query:(newProduct)=>({
                 method:"POST",
+                url:`coloshop`,
                 body:newProduct,
                 headers:{
                     "Accept":"application/json",    

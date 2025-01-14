@@ -2,6 +2,10 @@ const mongoose = require("mongoose")
 
 
 let colorshopSchema = new mongoose.Schema({
+    image:{
+        required:[true,"Enter Image"],
+        type:String
+    },
     name:{
         required:[true,"Enter Name"],
         type:String
