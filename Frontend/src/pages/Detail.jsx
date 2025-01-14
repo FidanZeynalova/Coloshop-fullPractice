@@ -2,19 +2,20 @@ import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { RiArrowGoBackFill } from "react-icons/ri";
 import { NavLink, useNavigate, useParams } from 'react-router'
-import { useGetAllProductsQuery, useGetProductByIdQuery } from '../App/Slices/ColoshopSlices';
+import {  useGetProductByIdQuery } from '../App/Slices/ColoshopSlices';
 
 function Detail() {
   const { id } = useParams()
   const { data, isLoading } = useGetProductByIdQuery(id)
+  let navigate = useNavigate()
 
   if (!data) {
-    return <h1>Product not found</h1>;
+    navigate("*")
   }
 
   return (
     <div className='Detail'>
-      <h1>Product Detail</h1>
+      
       {
         isLoading ? (
           <h1>...isLoading</h1>

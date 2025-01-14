@@ -2,8 +2,8 @@ import React from 'react'
 
 function NotPage() {
   return (
-    <div>
-      ERROR
+    <div className='NotFound'>
+     <h1>Error!😔</h1>
     </div>
   )
 }
